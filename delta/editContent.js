@@ -7,7 +7,6 @@ const originalGetElementsByClassName = document.getElementsByClassName;
 // Text content mapping
 const contentMap = {
   // Header Navigation
-  "header h1": "Delta XR",
   "header .menu a.link:nth-of-type(1)": "App",
   "header .menu a.link:nth-of-type(2)": "Services",
   "header .menu a.link:nth-of-type(3)": "Configurator",
@@ -157,6 +156,14 @@ function handleSpecialCases(element) {
   watchImgs.forEach(img => {
     img.src = "./watch.svg";
   });
+
+    const logoImg = document.querySelector("header a.header__logo picture img");
+    if (logoImg) {
+      logoImg.src = "./logo.avif"; // Set your new logo path here
+    } else {
+      console.warn("Logo image element not found.");
+    }
+
 }
 // Function to update content of an element and its children
 function processElement(element) {
